@@ -1,6 +1,6 @@
 package com.start.spring.aula141124.Controller;
 
-import com.start.spring.aula141124.Model.Customer;
+import com.start.spring.aula141124.Entities.Customer;
 import com.start.spring.aula141124.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
