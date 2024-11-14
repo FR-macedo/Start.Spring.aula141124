@@ -1,10 +1,8 @@
 package com.start.spring.aula141124.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +12,16 @@ public class Customer{
     private Long id;
     private String name;
     private String email;
-    private List<Order> orderList;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Order> orderList = new ArrayList<>();
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public Customer(String name, String email) {
         this.name = name;
