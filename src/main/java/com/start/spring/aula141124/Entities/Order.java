@@ -1,13 +1,17 @@
 package com.start.spring.aula141124.Entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Order {
     private Long id;
-    private List<Product> productList;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Product> productList = new ArrayList<>();
     private double total;
 
     public Order(Long id, List<Product> productList, double total) {
@@ -16,7 +20,13 @@ public class Order {
         this.total = total;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public List<Product> getProductList() {
         return productList;
